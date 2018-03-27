@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://microsoft.com/wsdl/types/" />
+  <xs:element name="getAllToDos">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="getAllToDosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getAllToDosResult" type="tns:ArrayOfXElement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfXElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XElement" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="id" type="q1:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getByIdResult">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="saveTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="id" type="q2:guid" />
+        <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="dueDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="saveTaskResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="addToDo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="duedate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addToDoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="addToDoResult" type="q3:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteToDo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://microsoft.com/wsdl/types/" minOccurs="1" maxOccurs="1" name="id" type="q4:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteToDoResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="deleteAll">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="deleteAllResponse">
+    <xs:complexType />
+  </xs:element>
+</xs:schema>

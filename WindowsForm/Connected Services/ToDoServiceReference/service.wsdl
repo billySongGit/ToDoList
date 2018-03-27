@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ToDoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://microsoft.com/wsdl/types/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IToDoService_getAllToDos_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllToDos" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_getAllToDos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllToDosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_getById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getById" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_getById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_saveTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveTask" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_saveTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:saveTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_addToDo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addToDo" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_addToDo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addToDoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_deleteToDo_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteToDo" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_deleteToDo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteToDoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_deleteAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAll" />
+  </wsdl:message>
+  <wsdl:message name="IToDoService_deleteAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAllResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IToDoService">
+    <wsdl:operation name="getAllToDos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToDoService/getAllToDos" message="tns:IToDoService_getAllToDos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToDoService/getAllToDosResponse" message="tns:IToDoService_getAllToDos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToDoService/getById" message="tns:IToDoService_getById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToDoService/getByIdResponse" message="tns:IToDoService_getById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToDoService/saveTask" message="tns:IToDoService_saveTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToDoService/saveTaskResponse" message="tns:IToDoService_saveTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addToDo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToDoService/addToDo" message="tns:IToDoService_addToDo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToDoService/addToDoResponse" message="tns:IToDoService_addToDo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteToDo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToDoService/deleteToDo" message="tns:IToDoService_deleteToDo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToDoService/deleteToDoResponse" message="tns:IToDoService_deleteToDo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToDoService/deleteAll" message="tns:IToDoService_deleteAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToDoService/deleteAllResponse" message="tns:IToDoService_deleteAll_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IToDoService" type="tns:IToDoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllToDos">
+      <soap:operation soapAction="http://tempuri.org/IToDoService/getAllToDos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getById">
+      <soap:operation soapAction="http://tempuri.org/IToDoService/getById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveTask">
+      <soap:operation soapAction="http://tempuri.org/IToDoService/saveTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addToDo">
+      <soap:operation soapAction="http://tempuri.org/IToDoService/addToDo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteToDo">
+      <soap:operation soapAction="http://tempuri.org/IToDoService/deleteToDo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAll">
+      <soap:operation soapAction="http://tempuri.org/IToDoService/deleteAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ToDoService">
+    <wsdl:port name="BasicHttpBinding_IToDoService" binding="tns:BasicHttpBinding_IToDoService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Alogent/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
